@@ -13,6 +13,20 @@ describe('app', () => {
     });
   });
 
+  describe('GET /IECHO', () => {
+    it('should respond to the GET method with 200', async () => {
+      const response = await request(app).get('/iecho?text=textt');
+      expect(response.statusCode).toBe(200);
+    });
+  });
+
+  describe('GET /IECHO', () => {
+    it('should respond to the GET method with 400', async () => {
+      const response = await request(app).get('/iecho');
+      expect(response.statusCode).toBe(400);
+    });
+  });
+
   describe('GET /404', () => {
     it('should respond to the GET method with a 404 for a route that does not exist', async () => {
       const response = await request(app).get('/404');

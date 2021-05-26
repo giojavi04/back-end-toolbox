@@ -22,7 +22,7 @@ router.get('/iecho',
   (req, res, next) => {
     var err = validationResult(req);
     if (!err.isEmpty()) {
-      res.send({ error: err.mapped().text.msg })
+      res.status(400).send({ error: err.mapped().text.msg })
     } else {
       res.send(textService(req.query.text))
     }
